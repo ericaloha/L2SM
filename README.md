@@ -1,3 +1,7 @@
+**L2SM (Log-assisted LSM tree) is built based on LevelDB, which is a prototype propesed to adopt a SST log structure to isolate selected key-value items for better performance.**
+
+
+###From LevelDB:
 **LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.**
 
 [![Build Status](https://travis-ci.org/google/leveldb.svg?branch=master)](https://travis-ci.org/google/leveldb)
