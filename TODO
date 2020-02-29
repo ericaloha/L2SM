@@ -1,0 +1,36 @@
+ss
+- Stats
+
+db
+- Maybe implement DB::BulkDeleteForRange(start_key, end_key)
+  that would blow away files whose ranges are entirely contained
+  within [start_key..end_key]?  For Chrome, deletion of obsolete
+  object stores, etc. can be done in the background anyway, so
+  probably not that important.
+- There have been requests for MultiGet.
+
+After a range is completely deleted, what gets rid of the
+corresponding files if we do no future changes to that range.  Make
+the conditions for triggering compactions fire in more situations?
+
+
+
+Current Change 0905
+[1] using key granularity to judge whether a sst is hot or not in Log
+[2] also considering about range, density(keynums/range) as Log PickUp rules 
+[3] waiting to be done:
+       pick up hot keys within a sst, and organize them to become a new sst maintained in log
+
+Current Change 0914
+[1] stable version of key/table mixed log (take care of the lock, it would throw exception if lock is prohibited)
+[2] waited to be added read logic
+
+Current Change 0923
+[1] read write performance is accepectable but performance with key log is unsolved
+[2] a quite important version of this research
+
+Current Change 1016
+[1] Read&Write performance enhance
+[2] Stable= version for testing
+[3] need to find the best workload which can show the best enhancement .
+
